@@ -1,0 +1,20 @@
+{
+  "project": "Lifely",
+  "version": "1.0.0",
+  "entities": {
+    "user_balance": {
+      "income_sources": ["salary", "dividends", "freelance"],
+      "fixed_expenses": ["rent", "utilities", "subscriptions"],
+      "delta_calculation": "income - expenses"
+    },
+    "wealth_goals": {
+      "target_amount": 100000,
+      "currency": "USD",
+      "horizon_years": 5
+    },
+    "habit_tracker": {
+      "daily_check_ins": true,
+      "multiplier_logic": "consistency_days * 0.1"
+    }
+  }
+}
