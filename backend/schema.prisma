@@ -1,0 +1,45 @@
+// Модели данных для финансового модуля Lifely
+
+model FinanceAuthor {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, name])
+  @@index([userId, createdAt])
+}
+
+model FinanceCategory {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, name])
+  @@index([userId, createdAt])
+}
+
+model FinanceSavings {
+  id                 String   @id @default(cuid())
+  userId             String   @unique
+  savingsCents       Int      @default(0)
+  lastProcessedMonth String   // YYYY-MM (последний месяц, учтенный в сбережениях)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model FinanceEntry {
+  id          String   @id @default(cuid())
+  userId      String
+  authorName  String   @default("Я")
+  date        DateTime
+  amountCents Int
+  type        String
+  category    String
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId, date])
+}
